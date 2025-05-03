@@ -1,24 +1,31 @@
-# README
+# 🧪 System Test: `switching_rooms_spec.rb`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 📂 File Location:
+```
+/spec/system/switching_rooms_spec.rb
+```
 
-Things you may want to cover:
+## 📝 Purpose:
+This system test verifies that users can **switch between chat rooms** and see the correct messages for each room in a multi-room chat application.
 
-* Ruby version
+## 🔍 What It Tests:
+- Users can view a list of chat rooms.
+- When clicking a room name, the UI updates to show only that room’s messages.
+- Messages are scoped correctly per room (no message leakage between rooms).
 
-* System dependencies
+## ✅ Example Behaviors Checked:
+- Clicking “Room 1” shows only messages from Room 1.
+- Switching to “Room 2” hides Room 1’s messages and shows Room 2’s.
+- Creating or deleting a message updates only the current room.
 
-* Configuration
+## 🛠️ Technologies Used:
+- **RSpec** for writing and structuring the test.
+- **Capybara** for simulating user interactions (clicking, navigation).
 
-* Database creation
+## 🚀 Run the System Test:
+```bash
+rspec 
+```
 
-* Database initialization
+> ✅ Tip: Make sure `chromedriver` is installed and configured if you're using `Capybara + Selenium`.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
