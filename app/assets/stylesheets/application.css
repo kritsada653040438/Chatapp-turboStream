@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+ html, body, #chatapp {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #chatapp {
+    display: flex;
+    flex-direction: row;
+  }
+  #rooms {
+    background-color: #AC1754;
+    width: 200px;
+  }
+  
+  #messages {
+    background-color: #F7A8C4;
+    flex-grow: 1;
+    padding: 16px;
+  }
+  #room-list{
+    list-style-type: none;
+    font-size: medium;
+    text-align: center;
+  }
+  #actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #room-form-submit-btn {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  #message-form { 
+    display: flex;
+    position: absolute;
+    bottom: 0;
+  }
+  #message-felid {
+    width: 1000px;
+    flex-grow: 1;
+  }
+  #message-submit-btn {
+    margin-left: 10px;
+    right: 0;
+    bottom: 0;
+  }
+  
+    

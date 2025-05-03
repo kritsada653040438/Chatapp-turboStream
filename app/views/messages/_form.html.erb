@@ -1,0 +1,10 @@
+
+<%= form_with(model: message, id: 'message-form') do |form| %>
+<div class="message-felid">
+  <%= form.text_field :content %>
+  <%= form.hidden_field :room_id %>
+</div>
+  <div id="message-submit-btn">
+    <%= form.submit %>
+  </div>
+<% end %>
