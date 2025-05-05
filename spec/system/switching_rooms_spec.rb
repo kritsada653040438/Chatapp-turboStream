@@ -1,39 +1,30 @@
 require 'rails_helper'
 
-describe "User switching rooms" do
-  context "when user visits the main page" do
-    it "allows user to switch between rooms", js: true do
-      user_creates_test_rooms
-      user_visits_home_page
-      user_clicks_first_room
-      user_must_see_first_room_name
-      user_clicks_second_room
-      user_must_see_second_room_name
+RSpec.describe "User switching rooms", type: :system do
+  context "rooms exist" do
+    before do
+      Room.create!(name: "Room 1")
+      Room.create!(name: "Room 2")
     end
-  end
 
-  def user_creates_test_rooms
-    @room1 = Room.create!(name: "Room 1")
-    @room2 = Room.create!(name: "Room 2")
-  end
+    context "user enters a room" do
+      before do
+        visit root_path
+        click_link "Room 1"
+      end
 
-  def user_visits_home_page
-    visit root_path
-  end
+      it "allows user to switch between rooms", js: true do
+        user_switches_to_room
+        user_should_see_the_room("Room 2")
+      end
 
-  def user_clicks_first_room
-    click_link "Room 1"
-  end
+      def user_switches_to_room
+        click_link "Room 2"
+      end
 
-  def user_must_see_first_room_name
-    expect(page).to have_content "Room 1"
-  end
-
-  def user_clicks_second_room
-    click_link "Room 2"
-  end
-
-  def user_must_see_second_room_name
-    expect(page).to have_content "Room 2"
+      def user_should_see_the_room(room_name)
+        expect(page).to have_content room_name
+      end
+    end
   end
 end
